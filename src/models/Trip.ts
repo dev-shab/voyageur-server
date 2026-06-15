@@ -1,6 +1,18 @@
 import { Schema, model } from "mongoose";
 
-const tripSchema = new Schema({
+export interface ITrip {
+  title: string;
+  destination: string;
+  country: string;
+  startDate: Date;
+  endDate: Date;
+  category?: string;
+  budget?: number;
+  status?: string;
+  notes?: string;
+}
+
+const tripSchema = new Schema<ITrip>({
   title: {
     type: String,
     required: true,
@@ -37,4 +49,4 @@ const tripSchema = new Schema({
   },
 });
 
-export const Trip = model("Trip", tripSchema);
+export const Trip = model<ITrip>("Trip", tripSchema);
