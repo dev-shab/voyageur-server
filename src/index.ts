@@ -1,7 +1,8 @@
 import express from "express";
+import { PORT } from "./utils/config.js";
 
 const app = express();
 
-app.listen(3000, () => {
-  console.log("Running on port 3000");
+app.listen(PORT, () => {
+  console.log(`Running on port ${PORT}`);
 });
