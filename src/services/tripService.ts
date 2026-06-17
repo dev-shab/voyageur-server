@@ -11,6 +11,7 @@ export const createTrip = async (
   budget?: number,
   status?: string,
   notes?: string,
+  imageUrl?: string,
 ) => {
   if (!title) {
     throw new ApiError("Trip title is required", 400);
@@ -51,8 +52,14 @@ export const createTrip = async (
   if (budget !== undefined) tripData.budget = budget;
   if (status !== undefined) tripData.status = status;
   if (notes !== undefined) tripData.notes = notes;
+  if (imageUrl !== undefined) tripData.imageUrl = imageUrl;
 
   const trip = await Trip.create(tripData);
 
   return trip;
+};
+
+export const fetchTrips = async () => {
+  const trips = await Trip.find();
+  return trips;
 };
