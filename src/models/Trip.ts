@@ -10,6 +10,7 @@ export interface ITrip {
   budget?: number;
   status?: string;
   notes?: string;
+  imageUrl?: string;
 }
 
 const tripSchema = new Schema<ITrip>({
@@ -45,6 +46,9 @@ const tripSchema = new Schema<ITrip>({
     default: "DRAFT",
   },
   notes: {
+    type: String,
+  },
+  imageUrl: {
     type: String,
   },
 });
